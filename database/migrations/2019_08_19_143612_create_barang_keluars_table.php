@@ -18,6 +18,7 @@ class CreateBarangKeluarsTable extends Migration
             $table->integer('id_barang');
             $table->integer('jumlah');
             $table->date('tanggal_keluar');
+            $table->string('penanggung_jawab');
             $table->timestamps();
         });
     }

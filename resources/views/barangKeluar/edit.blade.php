@@ -41,6 +41,10 @@
                     <label for="">Tanggal Keluar</label>
                     <input type="date" name="tanggal_keluar" class="form-control" required value="{{ $BK->tanggal_keluar }}">
                 </div>
+                <div class="form-group">
+                    <label for="">Penanggung Jawab</label>
+                    <input type="text" name="penanggung_jawab" class="form-control" required value="{{ $BK->penanggung_jawab }}">
+                </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Save">
             </div>

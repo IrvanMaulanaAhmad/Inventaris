@@ -37,6 +37,10 @@
                     <label for="">Tanggal Keluar</label>
                     <input type="date" name="tanggal_keluar" class="form-control" required>
                 </div>
+                <div class="form-group">
+                    <label for="">Penanggung Jawab</label>
+                    <input type="text" name="penanggung_jawab" class="form-control" required>
+                </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Save">
             </div>

@@ -133,6 +133,7 @@
                 <th style="text-align:center">Nama Barang</th>
                 <th style="text-align:center">Jumlah</th>
                 <th style="text-align:center">Tanggal Keluar</th>
+                <th style="text-align:center">Penanggung Jawab</th>
             </tr>
             @foreach ($BK as $bk)
                 @foreach ($barangs as $barang)
@@ -142,10 +143,11 @@
                             <td style="text-align:center">{{ $barang->nama_barang }}</td>
                             <td style="text-align:center"> {{ $bk->jumlah }}</td>
                             <td style="text-align:center">{{ date('d - m - Y', strtotime($bk->tanggal_keluar)) }}</td>
+                            <td style="text-align:center">{{ $bk->penanggung_jawab }}</td>
                         </tr>
-                        <?php $no++; ?> 
+                        <?php $no++; ?>
                     @endif
-                @endforeach     
+                @endforeach
             @endforeach
         </table>
     </div>

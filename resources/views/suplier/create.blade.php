@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputKeterangan">Keterangan</label>
-                <input type="text" class="form-control" placeholder="keterangan" name="keterangan">
+                <textarea name="keterangan" cols="30" rows="3" placeholder="keterangan" class="form-control"></textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Save">

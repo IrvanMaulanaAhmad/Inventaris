@@ -40,6 +40,7 @@
                     <th style="text-align:center">Nama Barang</th>
                     <th style="text-align:center">Jumlah</th>
                     <th style="text-align:center">Tanggal Keluar</th>
+                    <th style="text-align:center">Penanggung Jawab</th>
                     <th style="text-align:center">Action</th>
                 </tr>
                 @foreach ($posts as $post)
@@ -50,9 +51,12 @@
                                 <td style="text-align:center">{{ $barang->nama_barang }}</td>
                                 <td style="text-align:center"> {{ $post->jumlah }} </td>
                                 <td style="text-align:center">{{ date('d - m - Y', strtotime($post->tanggal_keluar)) }}</td>
+                                <td style="text-align:center">{{ $post->penanggung_jawab }}</td>
                                 <td style="text-align:center">
-                                    <a href=" {{ route('barangKeluar.edit', $post->id) }} " type="button" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit </a>
-                                    </form>
+                                    @if (Auth::user()->roles == 0)
+                                        <a href=" {{ route('barangKeluar.edit', $post->id) }} " type="button" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit </a>
+                                         </form>
+                                    @endif
                                 </td>
                             </tr>
                         <?php $no++; ?>
@@ -61,9 +65,12 @@
                 @endforeach
             </table>
         </div>
-        <div class="box-footer" style="text-align:right">
-            <a href=" {{ route('barangKeluar.create')}} " type="button" class="btn btn-primary">Tambah Data</a>
-        </div>
+       @if (Auth::user()->roles == 0)
+       <div class="box-footer" style="text-align:right">
+        <a href=" {{ route('barangKeluar.create')}} " type="button" class="btn btn-primary">Tambah Data</a>
+    </div>
+       @endif
+        <!-- /.box-body -->
     </div>
 
 

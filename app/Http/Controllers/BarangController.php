@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Barang;
 use App\Satuan;
 use Illuminate\Http\Request;
@@ -162,4 +163,14 @@ class BarangController extends Controller
         $barang->delete();
         return redirect()->back();
     }
+
+    public function cetak_pdf()
+    {
+    	$barang = Barang::all();
+
+    	$pdf = PDF::loadview('barang_pdf',['barang'=>$barang]);
+        return $pdf->download('laporan-barang-pdf');
+        return $pdf->stream();
+    }
+
 }

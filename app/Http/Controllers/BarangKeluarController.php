@@ -43,6 +43,7 @@ class BarangKeluarController extends Controller
             'id_barang' => request('nama_barang'),
             'jumlah' => request('jumlah'),
             'tanggal_keluar' => request('tanggal_keluar'),
+            'penanggung_jawab' => request('penanggung_jawab')
         ]);
         $id = request('nama_barang');
         $jumlah = request('jumlah');
@@ -101,6 +102,7 @@ class BarangKeluarController extends Controller
             'nama_barang' => request('nama_barang'),
             'jumlah' => request('jumlah'),
             'tanggal_keluar' => request('tanggal_keluar'),
+            'penanggung_jawab'=> request('penanggung_jawab')
         ]);
         return redirect()->route('barangKeluar.index');
     }

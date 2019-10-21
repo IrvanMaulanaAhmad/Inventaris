@@ -54,21 +54,26 @@
                     <td style="text-align:center"> {{ $post->jam_buka }} - {{ $post->jam_tutup }} </td>
                     <td style="text-align:center"> {{ $post->keterangan }} </td>
                     <td style="text-align:right">
+                        @if (Auth::user()->roles == 0)
                         <a href=" {{ route('suplier.edit', $post->id) }} " type="button" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit</a>
                         <form action=" {{ route('suplier.destroy', $post)}} " method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</button>
                         </form>
+                        @endif
                     </td>
                 </tr>
                 <?php $no++; ?>
             @endforeach
             </table>
         </div>
+        @if (Auth::user()->roles == 0)
+
         <div class="box-footer" style="text-align:right">
             <a href=" {{ route('suplier.create')}} " type="button" class="btn btn-primary">Tambah Suplier</a>
         </div>
+        @endif
         <!-- /.box-body -->
     </div>
 

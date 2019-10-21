@@ -67,22 +67,26 @@
                                 echo date('d - m - Y', $timestamp);
                                 ?>
                             </td>
-                            <td style="text-align:center">
-                                <a href=" {{ route('barangMasuk.edit', $post->id) }} " type="button" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit</a>
-                                </form>
+                                @if (Auth::user()->roles == 0)
+                                    <td style="text-align:center">
+                                        <a href=" {{ route('barangMasuk.edit', $post->id) }} " type="button" class="btn btn-warning"><i class="fa fa-pencil"></i> Edit</a>
+                                        </form>
+                                @endif
                             </td>
                         </tr>
                         <?php $no++; ?>
                         @else
-                            
+
                         @endif
                     @endforeach
                 @endforeach
             </table>
         </div>
-        <div class="box-footer" style="text-align:right">
-            <a href=" {{ route('barangMasuk.create')}} " type="button" class="btn btn-primary">Tambah Data</a>
-        </div>
+        @if (Auth::user()->roles == 0)
+            <div class="box-footer" style="text-align:right">
+                <a href=" {{ route('barangMasuk.create')}} " type="button" class="btn btn-primary">Tambah Data</a>
+            </div>
+        @endif
         <!-- /.box-body -->
     </div>
 

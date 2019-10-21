@@ -16,7 +16,7 @@ use App\BarangKeluar;
 Auth::routes();
 
 Route::middleware('auth')->group(function(){
-    
+
     // Dashboard
     Route::get('/', 'DashboardController')->name('dashboard');
 
@@ -55,8 +55,8 @@ Route::middleware('auth')->group(function(){
     Route::patch('/barangKeluar/{id}/update', 'BarangKeluarController@update')->name('barangKeluar.update');
     Route::delete('/barangKeluar/{id}/delete', 'BarangKeluarController@destroy')->name('barangKeluar.destroy');
 
-    // Laporan
-    Route::get('/laporan/list-barang', function(){
-       return view('laporan.laporanListBarang');
-    })->name('laporanBarang');
+    // Cetak PDF Barang
+    //Route::get('/barang', 'BarangController@index')->name('barang.index');
+    Route::get('/barang/cetak_pdf', 'BarangController@cetak_pdf')->name('cetak_pdf.index');
+
 });
